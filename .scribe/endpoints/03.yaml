@@ -1,0 +1,137 @@
+name: Sources
+description: |-
+
+  APIs for retrieving news sources.
+  Sources represent the news providers from which articles are aggregated (e.g., NewsAPI, The Guardian, NYTimes).
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/sources
+    metadata:
+      custom: []
+      groupName: Sources
+      groupDescription: |-
+
+        APIs for retrieving news sources.
+        Sources represent the news providers from which articles are aggregated (e.g., NewsAPI, The Guardian, NYTimes).
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all sources'
+      description: 'Retrieve a list of all active news sources.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "name": "NewsAPI",
+                "slug": "newsapi",
+                "url": "https://newsapi.org",
+                "description": "NewsAPI is a simple HTTP REST API for searching and retrieving live articles from all over the web.",
+                "is_active": true
+              },
+              {
+                "id": 2,
+                "name": "The Guardian",
+                "slug": "the-guardian",
+                "url": "https://www.theguardian.com",
+                "description": "The Guardian is a British daily newspaper.",
+                "is_active": true
+              }
+            ]
+          }
+        headers: []
+        description: Success
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/sources/{id}'
+    metadata:
+      custom: []
+      groupName: Sources
+      groupDescription: |-
+
+        APIs for retrieving news sources.
+        Sources represent the news providers from which articles are aggregated (e.g., NewsAPI, The Guardian, NYTimes).
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get source details'
+      description: 'Retrieve details of a specific news source by its ID.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the source.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "name": "NewsAPI",
+              "slug": "newsapi",
+              "url": "https://newsapi.org",
+              "description": "NewsAPI is a simple HTTP REST API for searching and retrieving live articles from all over the web.",
+              "is_active": true
+            }
+          }
+        headers: []
+        description: 'Source found'
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "message": "Source not found"
+          }
+        headers: []
+        description: 'Source not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

@@ -1,0 +1,166 @@
+name: Authors
+description: |-
+
+  APIs for retrieving article authors.
+  Authors are the writers or journalists who create the articles.
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/authors
+    metadata:
+      custom: []
+      groupName: Authors
+      groupDescription: |-
+
+        APIs for retrieving article authors.
+        Authors are the writers or journalists who create the articles.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List authors'
+      description: 'Retrieve a paginated list of authors. Optionally filter by source.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      source_id:
+        custom: []
+        name: source_id
+        description: 'Filter authors by source ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of authors per page (default: 15).'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      source_id: 1
+      per_page: 20
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "name": "Jane Smith",
+                "source_id": 1
+              },
+              {
+                "id": 2,
+                "name": "John Doe",
+                "source_id": 2
+              }
+            ],
+            "links": {
+              "first": "http://localhost/api/v1/authors?page=1",
+              "last": "http://localhost/api/v1/authors?page=5",
+              "prev": null,
+              "next": "http://localhost/api/v1/authors?page=2"
+            },
+            "meta": {
+              "current_page": 1,
+              "from": 1,
+              "last_page": 5,
+              "per_page": 15,
+              "to": 15,
+              "total": 75
+            }
+          }
+        headers: []
+        description: Success
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/authors/{id}'
+    metadata:
+      custom: []
+      groupName: Authors
+      groupDescription: |-
+
+        APIs for retrieving article authors.
+        Authors are the writers or journalists who create the articles.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get author details'
+      description: 'Retrieve details of a specific author by their ID.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the author.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "name": "Jane Smith",
+              "source_id": 1
+            }
+          }
+        headers: []
+        description: 'Author found'
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "message": "Author not found"
+          }
+        headers: []
+        description: 'Author not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

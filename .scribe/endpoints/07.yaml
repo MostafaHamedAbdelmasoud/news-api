@@ -1,0 +1,115 @@
+name: 'User Feed'
+description: |-
+
+  APIs for personalized news feed.
+  The feed is customized based on user preferences (preferred sources, categories, and authors).
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/user/feed
+    metadata:
+      custom: []
+      groupName: 'User Feed'
+      groupDescription: |-
+
+        APIs for personalized news feed.
+        The feed is customized based on user preferences (preferred sources, categories, and authors).
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get personalized feed'
+      description: |-
+        Retrieve a personalized news feed based on user preferences.
+        Articles are filtered by the user's preferred sources, categories, and authors.
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_BEARER_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of articles per page (max 100, default: 15).'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      per_page: 20
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "title": "Breaking News in Your Interests",
+                "slug": "breaking-news-in-your-interests",
+                "excerpt": "A brief summary of the article...",
+                "content": "Full article content here...",
+                "url": "https://example.com/article",
+                "image_url": "https://example.com/image.jpg",
+                "published_at": "2024-01-15T10:30:00Z",
+                "source": {
+                  "id": 1,
+                  "name": "NewsAPI",
+                  "slug": "newsapi"
+                },
+                "category": {
+                  "id": 1,
+                  "name": "Technology",
+                  "slug": "technology"
+                },
+                "author": {
+                  "id": 1,
+                  "name": "Jane Smith"
+                }
+              }
+            ],
+            "links": {
+              "first": "http://localhost/api/v1/user/feed?page=1",
+              "last": "http://localhost/api/v1/user/feed?page=10",
+              "prev": null,
+              "next": "http://localhost/api/v1/user/feed?page=2"
+            },
+            "meta": {
+              "current_page": 1,
+              "from": 1,
+              "last_page": 10,
+              "per_page": 15,
+              "to": 15,
+              "total": 150
+            }
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: |-
+          {
+            "message": "Unauthenticated."
+          }
+        headers: []
+        description: Unauthenticated
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null

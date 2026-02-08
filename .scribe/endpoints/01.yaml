@@ -1,0 +1,440 @@
+name: Articles
+description: |-
+
+  APIs for browsing and retrieving articles.
+  Articles are aggregated from multiple news sources including NewsAPI, The Guardian, and New York Times.
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/articles
+    metadata:
+      custom: []
+      groupName: Articles
+      groupDescription: |-
+
+        APIs for browsing and retrieving articles.
+        Articles are aggregated from multiple news sources including NewsAPI, The Guardian, and New York Times.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List articles'
+      description: |-
+        Retrieve a paginated list of articles with optional filters.
+        Supports filtering by keyword, date range, sources, categories, and authors.
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      keyword:
+        custom: []
+        name: keyword
+        description: 'Filter articles by keyword in title or content.'
+        required: false
+        example: technology
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      date_from:
+        custom: []
+        name: date_from
+        description: 'date Filter articles published on or after this date. Format: YYYY-MM-DD.'
+        required: false
+        example: '2024-01-01'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      date_to:
+        custom: []
+        name: date_to
+        description: 'date Filter articles published on or before this date. Format: YYYY-MM-DD.'
+        required: false
+        example: '2024-12-31'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      source_ids:
+        custom: []
+        name: source_ids
+        description: 'Filter by source IDs.'
+        required: false
+        example:
+          - 1
+          - 2
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      category_ids:
+        custom: []
+        name: category_ids
+        description: 'Filter by category IDs.'
+        required: false
+        example:
+          - 1
+          - 3
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      author_ids:
+        custom: []
+        name: author_ids
+        description: 'Filter by author IDs.'
+        required: false
+        example:
+          - 5
+          - 10
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      sort_by:
+        custom: []
+        name: sort_by
+        description: 'Sort field. Allowed: published_at, created_at, title.'
+        required: false
+        example: published_at
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      sort_direction:
+        custom: []
+        name: sort_direction
+        description: 'Sort direction. Allowed: asc, desc.'
+        required: false
+        example: desc
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Number of articles per page (max 100).'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      page:
+        custom: []
+        name: page
+        description: 'Page number.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      keyword: technology
+      date_from: '2024-01-01'
+      date_to: '2024-12-31'
+      source_ids:
+        - 1
+        - 2
+      category_ids:
+        - 1
+        - 3
+      author_ids:
+        - 5
+        - 10
+      sort_by: published_at
+      sort_direction: desc
+      per_page: 15
+      page: 1
+    bodyParameters:
+      keyword:
+        custom: []
+        name: keyword
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      date_from:
+        custom: []
+        name: date_from
+        description: 'Must be a valid date.'
+        required: false
+        example: '2026-02-08T18:04:18'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      date_to:
+        custom: []
+        name: date_to
+        description: 'Must be a valid date. Must be a date after or equal to <code>date_from</code>.'
+        required: false
+        example: '2052-03-03'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      source_ids:
+        custom: []
+        name: source_ids
+        description: 'The <code>id</code> of an existing record in the sources table.'
+        required: false
+        example:
+          - 16
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      category_ids:
+        custom: []
+        name: category_ids
+        description: 'The <code>id</code> of an existing record in the categories table.'
+        required: false
+        example:
+          - 16
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      author_ids:
+        custom: []
+        name: author_ids
+        description: 'The <code>id</code> of an existing record in the authors table.'
+        required: false
+        example:
+          - 16
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      sort_by:
+        custom: []
+        name: sort_by
+        description: ''
+        required: false
+        example: published_at
+        type: string
+        enumValues:
+          - published_at
+          - created_at
+          - title
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      sort_direction:
+        custom: []
+        name: sort_direction
+        description: ''
+        required: false
+        example: desc
+        type: string
+        enumValues:
+          - asc
+          - desc
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      per_page:
+        custom: []
+        name: per_page
+        description: 'Must be at least 1. Must not be greater than 100.'
+        required: false
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      page:
+        custom: []
+        name: page
+        description: 'Must be at least 1.'
+        required: false
+        example: 67
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      keyword: b
+      date_from: '2026-02-08T18:04:18'
+      date_to: '2052-03-03'
+      source_ids:
+        - 16
+      category_ids:
+        - 16
+      author_ids:
+        - 16
+      sort_by: published_at
+      sort_direction: desc
+      per_page: 22
+      page: 67
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "title": "Breaking News: Technology Innovation",
+                "slug": "breaking-news-technology-innovation",
+                "excerpt": "A brief summary of the article...",
+                "content": "Full article content here...",
+                "url": "https://example.com/article",
+                "image_url": "https://example.com/image.jpg",
+                "published_at": "2024-01-15T10:30:00Z",
+                "source": {
+                  "id": 1,
+                  "name": "NewsAPI",
+                  "slug": "newsapi"
+                },
+                "category": {
+                  "id": 1,
+                  "name": "Technology",
+                  "slug": "technology"
+                },
+                "author": {
+                  "id": 1,
+                  "name": "Jane Smith"
+                }
+              }
+            ],
+            "links": {
+              "first": "http://localhost/api/v1/articles?page=1",
+              "last": "http://localhost/api/v1/articles?page=10",
+              "prev": null,
+              "next": "http://localhost/api/v1/articles?page=2"
+            },
+            "meta": {
+              "current_page": 1,
+              "from": 1,
+              "last_page": 10,
+              "per_page": 15,
+              "to": 15,
+              "total": 150
+            }
+          }
+        headers: []
+        description: Success
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/articles/{id}'
+    metadata:
+      custom: []
+      groupName: Articles
+      groupDescription: |-
+
+        APIs for browsing and retrieving articles.
+        Articles are aggregated from multiple news sources including NewsAPI, The Guardian, and New York Times.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get article details'
+      description: 'Retrieve a single article by its ID.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the article.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "title": "Breaking News: Technology Innovation",
+              "slug": "breaking-news-technology-innovation",
+              "excerpt": "A brief summary of the article...",
+              "content": "Full article content here...",
+              "url": "https://example.com/article",
+              "image_url": "https://example.com/image.jpg",
+              "published_at": "2024-01-15T10:30:00Z",
+              "source": {
+                "id": 1,
+                "name": "NewsAPI",
+                "slug": "newsapi"
+              },
+              "category": {
+                "id": 1,
+                "name": "Technology",
+                "slug": "technology"
+              },
+              "author": {
+                "id": 1,
+                "name": "Jane Smith"
+              }
+            }
+          }
+        headers: []
+        description: 'Article found'
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "message": "Article not found"
+          }
+        headers: []
+        description: 'Article not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

@@ -1,0 +1,196 @@
+name: 'User Preferences'
+description: |-
+
+  APIs for managing user preferences.
+  Preferences control the personalized feed by specifying preferred sources, categories, and authors.
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/user/preferences
+    metadata:
+      custom: []
+      groupName: 'User Preferences'
+      groupDescription: |-
+
+        APIs for managing user preferences.
+        Preferences control the personalized feed by specifying preferred sources, categories, and authors.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get user preferences'
+      description: |-
+        Retrieve the current user's news preferences.
+        Returns an empty preferences object if none exist.
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_BEARER_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "user_id": 1,
+              "preferred_sources": [1, 2],
+              "preferred_categories": [1, 3, 5],
+              "preferred_authors": [10, 15]
+            }
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: |-
+          {
+            "message": "Unauthenticated."
+          }
+        headers: []
+        description: Unauthenticated
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: api/v1/user/preferences
+    metadata:
+      custom: []
+      groupName: 'User Preferences'
+      groupDescription: |-
+
+        APIs for managing user preferences.
+        Preferences control the personalized feed by specifying preferred sources, categories, and authors.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update user preferences'
+      description: |-
+        Update the current user's news preferences.
+        Any field not provided will remain unchanged.
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_BEARER_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      preferred_sources:
+        custom: []
+        name: preferred_sources
+        description: 'An array of source IDs the user prefers.'
+        required: false
+        example:
+          - 1
+          - 2
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      preferred_categories:
+        custom: []
+        name: preferred_categories
+        description: 'An array of category IDs the user prefers.'
+        required: false
+        example:
+          - 1
+          - 3
+          - 5
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      preferred_authors:
+        custom: []
+        name: preferred_authors
+        description: 'An array of author IDs the user prefers.'
+        required: false
+        example:
+          - 10
+          - 15
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      preferred_sources:
+        - 1
+        - 2
+      preferred_categories:
+        - 1
+        - 3
+        - 5
+      preferred_authors:
+        - 10
+        - 15
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "user_id": 1,
+              "preferred_sources": [1, 2],
+              "preferred_categories": [1, 3, 5],
+              "preferred_authors": [10, 15]
+            }
+          }
+        headers: []
+        description: 'Preferences updated'
+      -
+        custom: []
+        status: 401
+        content: |-
+          {
+            "message": "Unauthenticated."
+          }
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "message": "One or more selected sources do not exist.",
+            "errors": {
+              "preferred_sources.0": ["One or more selected sources do not exist."]
+            }
+          }
+        headers: []
+        description: 'Validation error'
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
