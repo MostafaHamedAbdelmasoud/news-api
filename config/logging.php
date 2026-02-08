@@ -127,6 +127,14 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        'news_api' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/news_api.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('NEWS_API_LOG_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
+
     ],
 
 ];
